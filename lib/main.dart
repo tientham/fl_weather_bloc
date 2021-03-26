@@ -12,12 +12,16 @@ void main() {
   final WeatherRepository weatherRepository = WeatherRepository(
       weatherApiClient: WeatherApiClient(httpClient: http.Client()));
 
-  runApp(BlocProvider<ThemeBloc>(
-    create: (context) => ThemeBloc(),
-    child: MyApp(
-      weatherRepository: weatherRepository,
-    ),
-  ));
+  runApp(
+    MultiBlocProvider(
+        providers: [
+          BlocProvider<ThemeBloc>(create: (context) => ThemeBloc()),
+          BlocProvider<SettingsBloc>(create: (context) => SettingsBloc()),
+        ],
+        child: MyApp(
+          weatherRepository: weatherRepository,
+        )),
+  );
 }
 
 class MyApp extends StatelessWidget {
