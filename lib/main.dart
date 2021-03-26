@@ -12,8 +12,11 @@ void main() {
   final WeatherRepository weatherRepository = WeatherRepository(
       weatherApiClient: WeatherApiClient(httpClient: http.Client()));
 
-  runApp(MyApp(
-    weatherRepository: weatherRepository,
+  runApp(BlocProvider<ThemeBloc>(
+    create: (context) => ThemeBloc(),
+    child: MyApp(
+      weatherRepository: weatherRepository,
+    ),
   ));
 }
 
@@ -24,15 +27,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Flutter Weather',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: BlocProvider(
-          create: (context) =>
-              WeatherBloc(weatherRepository: weatherRepository),
-          child: Weather(),
-        ));
+    return BlocBuilder<ThemeBloc, ThemeState>(
+      builder: (context, themeState) {
+        return MaterialApp(
+            title: 'Flutter Weather',
+            theme: themeState.theme,
+            home: BlocProvider(
+              create: (context) =>
+                  WeatherBloc(weatherRepository: weatherRepository),
+              child: Weather(),
+            ));
+      },
+    );
   }
 }
