@@ -17,4 +17,6 @@ samples, guidance on mobile development, and a full API reference.
 
 - Icons: https://icons8.com/icon/set/weather/office
 
-- BLOC: https://bloclibrary.dev/#/flutterweathertutorial
+- BLOC - Weather: https://bloclibrary.dev/#/flutterweathertutorial
+
+- BLOC - Login: https://bloclibrary.dev/#/flutterlogintutorial
