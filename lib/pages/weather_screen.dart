@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:fl_weather_bloc/blocs/authentication/authentication_bloc.dart';
+import 'package:fl_weather_bloc/blocs/authentication/authentication_event.dart';
 import 'package:fl_weather_bloc/blocs/blocs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -43,6 +45,9 @@ class _WeatherScreenState extends State<WeatherScreen> {
           IconButton(icon: Icon(Icons.settings), onPressed: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) => Settings()));
           }),
+          IconButton(icon: Icon(Icons.logout), onPressed: () {
+            context.read<AuthenticationBloc>().add(AuthenticationLogoutRequested());
+          }),
         ],
       ),
       body: Center(
@@ -81,6 +86,15 @@ class _WeatherScreenState extends State<WeatherScreen> {
                       },
                       child: ListView(
                         children: [
+                          Padding(
+                            padding: EdgeInsets.only(top: 50.0),
+                            child: Builder(
+                              builder: (context) {
+                                final userId = context.select((AuthenticationBloc authenticationBloc) => authenticationBloc.state.user.id);
+                                return Text('UserID: $userId');
+                              },
+                            ),
+                          ),
                           Padding(
                             padding: EdgeInsets.only(top: 100.0),
                             child: Center(

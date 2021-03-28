@@ -1,7 +1,7 @@
 import 'package:authentication_repository/authentication_repository.dart';
 import 'package:fl_weather_bloc/blocs/authentication/authentication_bloc.dart';
 import 'package:fl_weather_bloc/blocs/authentication/authentication_state.dart';
-import 'package:fl_weather_bloc/pages/login_screen.dart';
+import 'package:fl_weather_bloc/pages/login/login_screen.dart';
 import 'package:fl_weather_bloc/pages/splash_screen.dart';
 import 'package:fl_weather_bloc/pages/weather_screen.dart';
 import 'package:flutter/material.dart';
