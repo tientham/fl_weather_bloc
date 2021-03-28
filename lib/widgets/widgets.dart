@@ -1,4 +1,4 @@
-export 'weather.dart';
+export '../pages/weather_screen.dart';
 export 'location.dart';
 export 'last_updated.dart';
 export 'combined_weather_temperature.dart';

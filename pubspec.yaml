@@ -17,6 +17,11 @@ dependencies:
   flutter_bloc: ^7.0.0
   http: ^0.13.1
   equatable: ^2.0.0
+  formz: ^0.4.0-nullsafety.0
+  authentication_repository:
+    path: packages/authentication_repository
+  user_repository:
+    path: packages/user_repository
   cupertino_icons: ^1.0.2
 
 dev_dependencies:

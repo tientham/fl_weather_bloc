@@ -5,11 +5,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fl_weather_bloc/widgets/widgets.dart';
 
-class Weather extends StatefulWidget {
-  State<Weather> createState() => _WeatherState();
+class WeatherScreen extends StatefulWidget {
+
+  static Route route() {
+    return MaterialPageRoute<void>(builder: (_) => WeatherScreen());
+  }
+
+  State<WeatherScreen> createState() => _WeatherScreenState();
 }
 
-class _WeatherState extends State<Weather> {
+class _WeatherScreenState extends State<WeatherScreen> {
 
   late Completer<void> _refreshCompleter;
 
